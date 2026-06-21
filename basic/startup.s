@@ -8,12 +8,13 @@
 .section .isr_vector
 
 .word _estack
-.word Reset_Handler
+.word Reset_Handler + 1
 
 .section .text
 
+.thumb_func
 Reset_Handler:
-	bl main
-loop:
-	b loop
+    bl main
 
+loop:
+    b loop
