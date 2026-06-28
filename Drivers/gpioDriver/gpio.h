@@ -21,4 +21,10 @@ typedef struct{
 #define GPIOF ((GPIO_REG_DEF_t *)GPIOFBASE)
 #define GPIOG ((GPIO_REG_DEF_t *)GPIOGBASE)
 
+#define RCC ((RCC_REG_DEF_t *)RCCBASE)
+void RCC_CLK_EN(int bitPOS);
+void RCC_CLK_DI(int bitPOS);
+void RCC_PHERI_CLK_CTRL(GPIO_REG_DEF_t * PORTx, int value);
+
+
 #endif

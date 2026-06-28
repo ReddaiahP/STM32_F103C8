@@ -1,13 +1,13 @@
 CC	= arm-none-eabi-gcc
 OBJCOPY = arm-none-eabi-objcopy
 
-CFLAGS 	= -mcpu=cortex-m3 -mthumb -nostdlib
+CFLAGS 	= -mcpu=cortex-m3 -mthumb -nostdlib -g
 
 all: firmware.bin
 
 firmware.elf: startup.s main.c linker.ld
 
-	$(CC) $(CFLAGS) -T linker.ld startup.s main.c -o firmware.elf
+	$(CC) $(CFLAGS) -T linker.ld startup.s main.c ./gpioDriver/gpio.c -o firmware.elf
 
 firmware.bin: firmware.elf
 	$(OBJCOPY) -O binary firmware.elf firmware.bin

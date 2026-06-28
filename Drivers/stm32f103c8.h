@@ -4,6 +4,7 @@
 
 #include <stdint.h>
 
+
 /*APB1*/
 #define APB1BASE 	0x40000000
 #define TIM2BASE	0x40000000
@@ -66,6 +67,26 @@
 #define ETHBASE		0x40028000
 #define USBOTGBASE	0x50000000
 #define FSMCBASE	0xA0000000
+
+// CLOCKS
+
+//SOME USEFUL MACROS
+#define ENABLE  1
+#define DISABLE 0
+
+
+typedef struct{
+    volatile uint32_t CR;
+    volatile uint32_t CFGR;
+    volatile uint32_t CIR;
+    volatile uint32_t APB2RSTR;
+    volatile uint32_t APB1RSTR;
+    volatile uint32_t AHBENR;
+    volatile uint32_t APB2ENR;
+    volatile uint32_t APB1ENR;
+    volatile uint32_t BDCR;
+    volatile uint32_t CSR;
+}RCC_REG_DEF_t;
 
 
 #endif
